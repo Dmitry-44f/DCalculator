@@ -37,7 +37,7 @@ public class ConsoleInterface implements UserInterface {
             String op = requestInput("Выберите операцию (+, -, *, /): ");
             if (op == null) return null;
 
-            if (op.equals("+") || op.equals("-") || op.equals("*") || op.equals("/")) {
+            if (op.equals("+") || op.equals("-") || op.equals("*") || op.equals("/") || op.equals("%")) {
                 return op;
             } else {
                 System.out.println("Ошибка: Такой операции нет! Попробуйте снова.");
