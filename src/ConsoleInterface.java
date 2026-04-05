@@ -2,8 +2,8 @@ import java.util.Scanner;
 
 public class ConsoleInterface implements UserInterface {
     private Scanner sc = new Scanner(System.in);
-    private Calculator calc = new Calculator();
-    private NumberSystem ns = new NumberSystem();
+//    private Calculator calc = new Calculator();
+//    private NumberSystem ns = new NumberSystem();
 
     public void start() {
         System.out.println("Консольный калькулятор систем счисления");
@@ -22,7 +22,7 @@ public class ConsoleInterface implements UserInterface {
                 if (num2 == Long.MIN_VALUE) break;
 
                 long result = op.apply(num1, num2);
-                ns.printAllSystems(result);
+                printAllSystems(result);
             } catch (NumberFormatException e) {
                 System.out.println("Ошибка: неверный формат числа");
             }
@@ -95,5 +95,14 @@ public class ConsoleInterface implements UserInterface {
         System.out.print(number);
         String input = sc.nextLine().trim();
         return input.equalsIgnoreCase("q") ? null : input;
+    }
+
+    public void printAllSystems(long result) {
+        System.out.println("Результат в разных системах счисления:");
+
+        for (Base b : Base.values()) {
+            System.out.println(b.displayName + ": " + b.format(result));
+        }
+        System.out.println();
     }
 }
