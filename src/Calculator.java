@@ -12,8 +12,4 @@ public class Calculator {
         if (b == 0) throw new ArithmeticException("Деление на ноль!\n");
         return a / b;
     }
-    public long remains(long a, long b) {
-        if (b == 0) throw new ArithmeticException("Деление на ноль!\n");
-        return a % b;
-    }
 }

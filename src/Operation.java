@@ -17,7 +17,7 @@ public enum Operation {
     DIV("/") {
         public long apply(long num1, long num2) {
             if (num2 == 0) {
-                throw new ArithmeticException("Деление на ноль!");
+                throw new ArithmeticException("Деление на ноль!\n");
             }
 
             return num1 / num2;
