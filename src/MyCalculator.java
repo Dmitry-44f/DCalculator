@@ -21,11 +21,10 @@ public class MyCalculator {
 
             try {
                 long result = math.calculate(num1, num2, op);
-                printResult(result);
+                printResult(result, system);
             } catch (NumberFormatException e) {
                 System.out.println("Ошибка: неверный формат числа");
-            }
-            catch (ArithmeticException e){
+            } catch (ArithmeticException e){
                 System.out.println("Арифметическая ошибка: " + e.getMessage());
             } catch (Exception e) {
                 System.out.println("Ошибка: " + e.getMessage());
@@ -89,11 +88,16 @@ public class MyCalculator {
         }
     }
 
-        public static void printResult(long result) {
-        System.out.println("Результат в разных системах счисления:");
+    public static void printResult(long result, NumberSystem selectedSystem) {
+        System.out.println("Результат:");
+
+        System.out.println(selectedSystem.getDisplayName() + ": "
+                + selectedSystem.format(result));
 
         for (NumberSystem b : NumberSystem.values()) {
-            System.out.println(b.getDisplayName() + ": " + b.format(result));
+            if (b != selectedSystem) {
+                System.out.println(b.getDisplayName() + ": " + b.format(result));
+            }
         }
         System.out.println();
     }
